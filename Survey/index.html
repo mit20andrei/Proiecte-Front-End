@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" href="style.css" type="text/css">
+
+<head>
+<body>
+<div id="main">
+<h1 id="title"> Survey Form </h1>
+  <div id="outer-form">
+    <p id="description"> Please, fill the form below. This is completely anonimouslu. </p>
+    <form id="survey-form">
+      <div class="row">
+        <div class="labels">
+          <label for="name" id="name-label" > Your Name </label>
+        </div>
+        <div class="right">
+          <input type="text" name="name" id="name" class="input-field" placeholder="Enter your name here" required autofocus> </div>
+        </div>
+      <div class="row">
+        <div class="labels">
+          <label for="email" id="email-label"> Your Email </label>
+        </div>
+        <div class="right">
+          <input type="email" name="firstname" id="email" class="input-field" placeholder="Enter your email here" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="labels">
+          <label for="number" id="number-label"> Age </label>
+        </div>
+        <div class="right">
+          <input type="number" name="firstname" id="number" class="input-field" min="1" max="100" placeholder="Age" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="labels">
+          <label for="dropdown" id="dropdown-label"> Which option describes best your role? </label>           </div>
+        <div class="right">
+          <select id="dropdown">
+            <option value="Select an option" disabled > Select an option </option>
+            <option value="Student" selected> Student </option>
+            <option value="jobFull"> Full time job </option>
+            <option value="jobPartial"> Partial time job </option>
+            <option value="stayHome"> Stay at home </option>
+            <option value="preferNot"> Prefer not to say </option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="labels"> Would you recommend Free Code Camp? </div>
+        <div class="right">
+          <input type="radio" name="recommend" id="definitely" value="definitely" checked>
+            <label for="definitely"> Definitely </label> <br>
+          <input type="radio" name="recommend" id="maybe" value="maybe" >
+            <label for="maybe">Maybe</label> <br>
+          <input type="radio" name="recommend" id="notSure"value="notSure">
+            <label for="notSure"> Not sure</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="labels">
+          <label for="dropdown" id="dropdown-label"> What do you like most in FCC? </label>           </div>
+        <div class="right">
+          <select id="dropdown">
+            <option value="Select an option" disabled selected > Select an option </option>
+            <option value="Student"> Challenges </option>
+            <option value="jobFull"> Projects </option>
+            <option value="jobPartial"> Community </option>
+            <option value="stayHome"> Open source </option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="labels"> Things that should be improved in the future
+(Check all that apply):</div>
+        <div class="right">
+          <input type="checkbox" name="improve" id="fronproject" value="fp">
+            <label for="frontproject"> Front-End projects</label> <br>
+          <input type="checkbox" name="improve" id="backproject" value="bp" >
+            <label for="backproject">Back-End projects</label> <br>
+          <input type="checkbox" name="improve" id="datvis"value="dv">
+            <label for="datvis">Data Visualization</label> <br>
+          <input type="checkbox" name="improve" id="chal"value="cl">
+            <label for="chal">Challenges</label> <br>
+          <input type="checkbox" name="improve" id="opnsrc"value="os">
+            <label for="opnsrc">Open Source Community</label> <br>
+          <input type="checkbox" name="improve" id="githr"value="gh">
+            <label for="githr">Gitter help rooms</label> <br>
+          <input type="checkbox" name="improve" id="videos"value="vd">
+            <label for="videos">Videos</label> <br>
+          <input type="checkbox" name="improve" id="citmet"value="cm">
+            <label for="citmet">City Meetups</label> <br>
+          <input type="checkbox" name="improve" id="adcour"value="ac">
+            <label for="adcour">Additional Courses</label> <br>
+          <input type="checkbox" name="improve" id="wiki"value="wk">
+            <label for="wiki">Wiki</label> <br>
+          <input type="checkbox" name="improve" id="forum"value="fm">
+            <label for="forum">Forum</label> <br>
+        </div>
+    </div>
+      <div class="row">
+        <div class="labels"> Any Comments or Suggestions? </div>
+        <div class="right">
+          <textarea id="comments" name="message" placeholder="Enter your comments here"></textarea>
+        </div>
+      </div>
+      <button type="submit" id="submit">Submit </button>
+    </form>
+  </div>
+</div>
+
+
+</body>
+</html>
