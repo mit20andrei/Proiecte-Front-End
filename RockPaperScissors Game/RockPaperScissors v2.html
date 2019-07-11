@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Page Title</title>
+</head>
+<body>
+  <div id="score">
+      <div id="scoreboard">
+      <span id="playerscore">0</span><span>-</span><span id="computerscore">0</span>
+      </div>
+  </div>
+  <div id="button-container">
+  <button class="choices" id="rock"></button>
+  <button class="choices" id="paper"></button>
+  <button class="choices" id="scissors"></button>
+  <p id="text"></p>
+  <button id="newgame">New Game</button>
+  </div>
+  <script>
+
+  let options = ["rock", "paper", "scissors"];
+  let rock = "rock";
+  let paper = "paper";
+  let scissors = "scissors";
+  let playerScore = 0;
+  let computerScore = 0;
+
+  var rockChoice = document.getElementById("rock");
+  var paperChoice = document.getElementById("paper");
+  var scissorsChoice = document.getElementById("scissors");
+
+  var playerScore_span = document.getElementById("playerscore");
+  var computerScore_span = document.getElementById("computerscore");
+  var text_span = document.getElementById("text");
+  var newgame_span = document.getElementById("newgame");
+
+  rockChoice.addEventListener("click", help1);
+  paperChoice.addEventListener("click", help2);
+  scissorsChoice.addEventListener("click", help3);
+  newgame_span.addEventListener("click", newgame);
+
+  function computerPlay(){
+    var random = Math.floor(Math.random()*options.length);
+    return options[random];
+  }
+  function help1(){
+    return playRound("rock", computerPlay());
+  }
+  function help2(){
+    return playRound("paper", computerPlay());
+  }
+  function help3(){
+    return playRound("scissors", computerPlay());
+  }
+  function newgame(){
+    playerScore=0;
+    computerScore=0;
+    computerScore_span.innerHTML = computerScore;
+    playerScore_span.innerHTML = playerScore;
+    text_span.innerHTML="";
+    newgame_span.style.cssText = "display:none";
+    rockChoice.disabled=false;
+    paperChoice.disabled=false;
+    scissorsChoice.disabled=false;
+    rockChoice.addEventListener("click", help1);
+    paperChoice.addEventListener("click", help2);
+    scissorsChoice.addEventListener("click", help3);
+    rockChoice.style.backgroundImage="url('rock.jpg')";
+    paperChoice.style.backgroundImage="url('paper.jpg')";
+    scissorsChoice.style.backgroundImage="url('scissors.jpg')";
+    text_span.style.color="blue";
+  }
+  function playRound(playerSelection, computerSelection){
+
+    if(playerSelection=="scissors" && computerSelection=="rock"){
+      computerScore+=1;
+      computerScore_span.innerHTML = computerScore;
+      text_span.innerHTML="You lose! Rock beats scissors!";
+    }
+    else if(playerSelection=="scissors" && computerSelection=="paper"){
+      playerScore+=1;
+      playerScore_span.innerHTML = playerScore;
+      text_span.innerHTML="You win! Scissors beat paper!";
+    }
+    else if(playerSelection=="rock" && computerSelection=="paper"){
+      computerScore+=1;
+      computerScore_span.innerHTML = computerScore;
+      text_span.innerHTML="You lose! Paper beats rock!";
+    }
+    else if(playerSelection=="rock" && computerSelection=="scissors"){
+      playerScore+=1;
+      playerScore_span.innerHTML = playerScore;
+      text_span.innerHTML="You win! Rock beats scissors!";
+    }
+    else if(playerSelection=="paper" && computerSelection=="rock"){
+      playerScore+=1;
+      playerScore_span.innerHTML = playerScore;
+      text_span.innerHTML="You win! Paper beats rock!";
+    }
+    else if(playerSelection=="paper" && computerSelection=="scissors"){
+      computerScore+=1;
+      computerScore_span.innerHTML = computerScore;
+      text_span.innerHTML="You lose! Scisoors beat paper!";
+    }
+    else {
+      text_span.innerHTML="It's a tie";
+    }
+    if (computerScore==3 || playerScore==3){
+
+      text_span.innerHTML ="Game Over! <br /> Want to try again? ";
+      rockChoice.removeEventListener("click", help1);
+      paperChoice.removeEventListener("click", help2);
+      scissorsChoice.removeEventListener("click", help3);
+      rockChoice.disabled=true;
+      paperChoice.disabled=true;
+      scissorsChoice.disabled=true;
+      newgame_span.style.cssText = "color:white; background:red; display:inline";
+      text_span.style.color="red";
+    }
+
+  }
+
+  </script>
+</body>
+</html>

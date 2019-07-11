@@ -1,0 +1,43 @@
+#score{
+  background-color:gray;
+  width: 60%;
+  height:200px;
+  margin:auto;
+}
+#button-container{
+  text-align:center;
+  padding:30px;
+}
+#rock{
+  background-image:url("rock.jpg");
+}
+#paper{
+  background-image:url("paper.jpg");
+}
+#scissors{
+  background-image:url("scissors.jpg");
+}
+.choices{
+  width:170px;
+  height:120px;
+  border-radius:50%;
+  margin:30px;
+  background-position:25px center;
+  background-repeat:no-repeat;
+}
+#score{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+span{
+  color:white;
+  font-size:100px;
+}
+#text{
+  font-size:50px;
+  color:blue;
+}
+#newgame{
+  display:none;
+}
