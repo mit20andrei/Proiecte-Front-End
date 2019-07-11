@@ -1,0 +1,80 @@
+
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<h1> Introduce the size of your grid (AxA)</h1>
+<form id="buttonForm">
+  <input type="number" id="number" value="">
+  <button name ="number" id ="myBtn" type="button">Create grid</button>
+</form>
+<div id="container"></div>
+<script>
+
+  var button = document.getElementById("myBtn");
+  button.addEventListener("click", createGrid);
+  var colors = ["White","Maroon","Olive","Brown","Teal","Navy","Black","Red","Orange","Yellow","Lime","Green","Cyan","Blue","Purple","Magenta","Grey","Pink","Apricot","Beige","Mint","Lavender"];
+
+
+ function createGrid(){
+  var v = document.getElementById("number").value;
+  var size = 960/v;
+  var container = document.getElementById("container");
+  var row=[];
+  for(x=1;x<=v;x++){
+    row[x]=x;
+  }
+  var column=[];
+  for(y=1;y<=v;y++){
+    column[y]=y;
+  }
+  for(i=1;i<=v;i++){
+    row[i]=document.createElement("div");
+    row[i].id = "row";
+
+    container.appendChild(row[i]);
+
+
+    for(j=1;j<=v;j++){
+    column[j]=document.createElement("div");
+    column[j].id = "column";
+    column[j].style.width=size;
+    column[j].style.height=size;
+    row[i].appendChild(column[j]);
+    column[j].addEventListener("mouseover", function randomColor(){
+     var random = Math.floor(Math.random()*colors.length);
+     var currentColor = this.style.background;
+     var copy = colors.slice();
+     for(i=1;i<=colors.length;i++){
+       if (currentColor == colors[i]){
+         copy.splice(i, 1);
+         random = Math.floor(Math.random()*colors.length-1);
+        this.style.background= copy[random];
+         copy = color.slice();
+         return;
+       }
+       this.style.background = colors[random];
+        return;
+     }
+   });
+        }
+    }
+  button.innerHTML="Reset";
+  button.removeEventListener("click", createGrid);
+  button.addEventListener("click", newGrid);
+  }
+
+
+function newGrid(){
+  document.getElementById("container").remove();
+  button.innerHTML="Create grid";
+  var newDiv = document.createElement("div");
+  newDiv.setAttribute("id", "container");
+  document.body.appendChild(newDiv);
+  button.removeEventListener("click", newGrid);
+  button.addEventListener("click", createGrid);
+}
+</script>
+</body>
+</html>
